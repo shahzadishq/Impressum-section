@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum Credit – 07 Stempel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 48px 20px; background: #fff; font-family: "Lato", sans-serif; }
+
+  /* ===== Design 07 – Stempel ===== */
+  .lm-stamp {
+    --lm-cyan: #18c8ec;
+    --lm-teal: #2ee6c8;
+    --lm-blue: #1e8ff0;
+    --lm-ink: #1b1d20;
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    padding: 30px 20px;
+  }
+  /* round badge: logo in the middle, text ring slowly turning around it */
+  .lm-stamp__badge {
+    position: relative; flex: none;
+    width: 176px; height: 176px;
+    display: grid; place-items: center;
+  }
+  .lm-stamp__ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: lm-stamp-turn 24s linear infinite; }
+  .lm-stamp__ring text { font: 700 12.5px "Lato", sans-serif; letter-spacing: 3.2px; fill: var(--lm-ink); }
+  .lm-stamp__core {
+    width: 108px; height: 108px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: #fff;
+    box-shadow: 0 0 0 1px #e1e6ea, 0 12px 28px -14px rgba(24,140,200,.6);
+  }
+  .lm-stamp__core img { width: 74px; height: auto; display: block; }
+  .lm-stamp__badge:hover .lm-stamp__ring { animation-duration: 8s; }
+  @keyframes lm-stamp-turn { to { transform: rotate(1turn); } }
+
+  .lm-stamp__title { margin: 0 0 10px; font-size: 26px; font-weight: 900; color: var(--lm-ink); line-height: 1.2; }
+  .lm-stamp__text { margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: #50565d; letter-spacing: .02em; }
+
+  .lm-stamp__btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 8px 8px 8px 24px;
+    border-radius: 999px;
+    border: 1.5px solid var(--lm-ink);
+    color: var(--lm-ink); font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: background .3s, color .3s;
+  }
+  .lm-stamp__btn span {
+    width: 38px; height: 38px; flex: none; border-radius: 50%;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--lm-blue), var(--lm-cyan) 60%, var(--lm-teal));
+    color: #fff; transition: transform .35s;
+  }
+  .lm-stamp__btn svg { width: 16px; height: 16px; }
+  .lm-stamp__btn:hover { background: var(--lm-ink); color: #fff; }
+  .lm-stamp__btn:hover span { transform: rotate(-45deg); }
+  .lm-stamp__btn:focus-visible { outline: 3px solid var(--lm-cyan); outline-offset: 3px; }
+
+  @media (max-width: 640px) {
+    .lm-stamp { flex-direction: column; text-align: center; gap: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .lm-stamp__ring { animation: none; } }
+</style>
+</head>
+<body>
+
+<section class="lm-stamp" aria-label="Konzept, Design und Umsetzung">
+  <div class="lm-stamp__badge">
+    <svg class="lm-stamp__ring" viewBox="0 0 176 176" aria-hidden="true">
+      <defs><path id="lm-stamp-circle" d="M88,88 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
+      <text><textPath href="#lm-stamp-circle" textLength="446" lengthAdjust="spacing">KONZEPT ✦ DESIGN ✦ UMSETZUNG ✦ LANDSBERG ✦</textPath></text>
+    </svg>
+    <div class="lm-stamp__core"><img src="../assets/lm-logo.png" alt="Landsberger Medienagentur Logo"></div>
+  </div>
+  <div>
+    <h3 class="lm-stamp__title">Konzept, Design und Umsetzung</h3>
+    <p class="lm-stamp__text">Landsberger Medienagentur — Ioan Meyer<br>© 2026 Copyright</p>
+    <a class="lm-stamp__btn" href="https://www.landsberger-medienagentur.de" target="_blank" rel="noopener">
+      Website der Agentur besuchen
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

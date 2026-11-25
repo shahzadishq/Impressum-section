@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum Credit – 10 Leiste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 48px 20px; background: #fff; font-family: "Lato", sans-serif; }
+
+  /* ===== Design 10 – Leiste ===== */
+  .lm-bar {
+    --lm-cyan: #18c8ec;
+    --lm-teal: #2ee6c8;
+    --lm-blue: #1e8ff0;
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex; align-items: center; gap: 22px;
+    padding: 14px 14px 14px 22px;
+    border-radius: 999px;
+    background: #1b1d20;
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* a soft light passes over the bar every few seconds */
+  .lm-bar::before {
+    content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: -40%;
+    width: 30%;
+    background: linear-gradient(100deg, transparent, rgba(24,200,236,.28), rgba(46,230,200,.2), transparent);
+    transform: skewX(-20deg);
+    animation: lm-bar-sweep 6s ease-in-out infinite;
+  }
+  @keyframes lm-bar-sweep { 0% { left: -40%; } 45%, 100% { left: 120%; } }
+
+  .lm-bar__logo { flex: none; width: 62px; height: auto; display: block; }
+  .lm-bar__info { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 18px; }
+  .lm-bar__title { margin: 0; font-size: 17px; font-weight: 900; }
+  .lm-bar__text { margin: 0; font-size: 15px; color: rgba(255,255,255,.68); letter-spacing: .02em; }
+
+  .lm-bar__btn {
+    flex: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: #fff; color: #1b1d20;
+    font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap;
+    transition: background .25s, color .25s;
+  }
+  .lm-bar__btn:hover { background: var(--lm-cyan); color: #000; }
+  .lm-bar__btn svg { width: 15px; height: 15px; }
+  .lm-bar__btn:focus-visible { outline: 3px solid var(--lm-cyan); outline-offset: 3px; }
+
+  @media (max-width: 760px) {
+    .lm-bar { flex-direction: column; text-align: center; border-radius: 22px; padding: 26px 22px; gap: 14px; }
+    .lm-bar__info { flex-direction: column; align-items: center; }
+    .lm-bar__btn { white-space: normal; }
+  }
+  @media (prefers-reduced-motion: reduce) { .lm-bar::before { animation: none; display: none; } }
+</style>
+</head>
+<body>
+
+<section class="lm-bar" aria-label="Konzept, Design und Umsetzung">
+  <img class="lm-bar__logo" src="../assets/lm-logo.png" alt="Landsberger Medienagentur Logo">
+  <div class="lm-bar__info">
+    <h3 class="lm-bar__title">Konzept, Design und Umsetzung</h3>
+    <p class="lm-bar__text">Landsberger Medienagentur — Ioan Meyer, © 2026 Copyright</p>
+  </div>
+  <a class="lm-bar__btn" href="https://www.landsberger-medienagentur.de" target="_blank" rel="noopener">
+    Website der Agentur besuchen
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</section>
+
+</body>
+</html>

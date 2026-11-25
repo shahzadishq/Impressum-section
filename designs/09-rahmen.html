@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum Credit – 09 Rahmen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 48px 20px; background: #fff; font-family: "Lato", sans-serif; }
+
+  /* ===== Design 09 – Rahmen ===== */
+  .lm-frame {
+    --lm-cyan: #18c8ec;
+    --lm-teal: #2ee6c8;
+    --lm-blue: #1e8ff0;
+    --lm-ink: #1b1d20;
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 46px 50px;
+    display: grid;
+    grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+    gap: 40px;
+    align-items: center;
+  }
+  /* the frame draws itself once when scrolled into view */
+  .lm-frame__line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .lm-frame__line rect {
+    width: calc(100% - 2px); height: calc(100% - 2px);
+    fill: none; stroke: url(#lm-frame-grad); stroke-width: 2;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+  }
+  .lm-frame.is-visible .lm-frame__line rect { animation: lm-frame-draw 2.2s cubic-bezier(.6,0,.2,1) forwards; }
+  @keyframes lm-frame-draw { to { stroke-dashoffset: 0; } }
+
+  /* corner logo sits on the frame line */
+  .lm-frame__logo {
+    position: absolute; top: 0; left: 50px; transform: translateY(-50%);
+    padding: 0 14px; background: #fff;
+  }
+  .lm-frame__logo img { width: 84px; height: auto; display: block; }
+
+  .lm-frame__title { margin: 0; font-size: 30px; font-weight: 900; color: var(--lm-ink); line-height: 1.15; }
+  .lm-frame__right { padding-left: 34px; border-left: 1px solid #e2e6ea; }
+  .lm-frame__text { margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: #50565d; letter-spacing: .02em; }
+
+  .lm-frame__btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 24px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--lm-blue), var(--lm-cyan));
+    color: #fff; font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: filter .25s, transform .25s;
+  }
+  .lm-frame__btn:hover { filter: brightness(1.08) saturate(1.1); transform: translateY(-2px); }
+  .lm-frame__btn svg { width: 16px; height: 16px; transition: transform .25s; }
+  .lm-frame__btn:hover svg { transform: translateX(3px); }
+  .lm-frame__btn:focus-visible { outline: 3px solid var(--lm-ink); outline-offset: 3px; }
+
+  @media (max-width: 700px) {
+    .lm-frame { grid-template-columns: minmax(0,1fr); padding: 52px 26px 34px; gap: 18px; text-align: center; }
+    .lm-frame__logo { left: 50%; transform: translate(-50%, -50%); }
+    .lm-frame__right { padding-left: 0; border-left: 0; }
+    .lm-frame__title { font-size: 26px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lm-frame__line rect { stroke-dashoffset: 0; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="lm-frame" aria-label="Konzept, Design und Umsetzung">
+  <svg class="lm-frame__line" aria-hidden="true">
+    <defs>
+      <linearGradient id="lm-frame-grad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#1e8ff0"/><stop offset=".5" stop-color="#18c8ec"/><stop offset="1" stop-color="#2ee6c8"/>
+      </linearGradient>
+    </defs>
+    <rect x="1" y="1" rx="16" pathLength="1"/>
+  </svg>
+  <div class="lm-frame__logo"><img src="../assets/lm-logo.png" alt="Landsberger Medienagentur Logo"></div>
+
+  <h3 class="lm-frame__title">Konzept, Design und Umsetzung</h3>
+  <div class="lm-frame__right">
+    <p class="lm-frame__text">Landsberger Medienagentur — Ioan Meyer<br>© 2026 Copyright</p>
+    <a class="lm-frame__btn" href="https://www.landsberger-medienagentur.de" target="_blank" rel="noopener">
+      Website der Agentur besuchen
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<script>
+(function () {
+  var el = document.querySelector('.lm-frame');
+  if (!el) return;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (en) { if (en.isIntersecting) { el.classList.add('is-visible'); obs.disconnect(); } });
+    }, { threshold: 0.4 }).observe(el);
+  } else { el.classList.add('is-visible'); }
+})();
+</script>
+
+</body>
+</html>
