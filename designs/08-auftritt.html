@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum Credit – 08 Auftritt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 48px 20px; background: #fff; font-family: "Lato", sans-serif; }
+
+  /* ===== Design 08 – Auftritt =====
+     Compact and neutral. Everything arrives in one choreographed sequence
+     when the section scrolls into view; hovering the card plays it again. */
+  .lm-act {
+    --lm-ink: #1b1d20;
+    --lm-mute: #5c6268;
+    --lm-line: #e4e7ea;
+    --lm-cyan: #18c8ec;
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto minmax(0,1fr);
+    gap: 6px 26px;
+    padding: 26px 28px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid var(--lm-line);
+    overflow: hidden;
+  }
+
+  /* a thin dark line runs once around the card */
+  .lm-act__trace { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .lm-act__trace rect {
+    x: .75px; y: .75px; width: calc(100% - 1.5px); height: calc(100% - 1.5px);
+    fill: none; stroke: var(--lm-ink); stroke-width: 1.5;
+    stroke-dasharray: .18 .82; stroke-dashoffset: 1; opacity: 0;
+  }
+  .lm-act.is-on .lm-act__trace rect { animation: lm-act-trace 1.8s .1s cubic-bezier(.6,0,.3,1) forwards; }
+  @keyframes lm-act-trace { 0% { stroke-dashoffset: 1; opacity: 1; } 85% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+
+  /* logo: wipes in, then sways gently */
+  .lm-act__logo { grid-row: span 3; align-self: center; width: 78px; height: auto; display: block; clip-path: inset(0 100% 0 0); }
+  .lm-act.is-on .lm-act__logo { animation: lm-act-wipe .9s .2s cubic-bezier(.7,0,.3,1) forwards, lm-act-sway 5s 1.4s ease-in-out infinite; }
+  @keyframes lm-act-wipe { to { clip-path: inset(0 0 0 0); } }
+  @keyframes lm-act-sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg) translateY(-2px); } }
+
+  /* title: each word rises out of a mask, one after another */
+  .lm-act__title { margin: 0; font-size: 20px; font-weight: 900; color: var(--lm-ink); line-height: 1.3; }
+  .lm-act__w { display: inline-block; overflow: hidden; vertical-align: bottom; }
+  .lm-act__w > span { display: inline-block; transform: translateY(105%); }
+  .lm-act.is-on .lm-act__w > span { animation: lm-act-rise .6s cubic-bezier(.2,.8,.2,1) forwards; }
+  .lm-act.is-on .lm-act__w:nth-child(1) > span { animation-delay: .45s; }
+  .lm-act.is-on .lm-act__w:nth-child(2) > span { animation-delay: .55s; }
+  .lm-act.is-on .lm-act__w:nth-child(3) > span { animation-delay: .65s; }
+  .lm-act.is-on .lm-act__w:nth-child(4) > span { animation-delay: .75s; }
+  @keyframes lm-act-rise { to { transform: translateY(0); } }
+
+  /* underline grows under the title */
+  .lm-act__rule { height: 2px; width: 44px; background: var(--lm-ink); transform: scaleX(0); transform-origin: left; margin: 4px 0 6px; }
+  .lm-act.is-on .lm-act__rule { animation: lm-act-grow .5s 1.05s ease-out forwards; }
+  @keyframes lm-act-grow { to { transform: scaleX(1); } }
+
+  /* meta text slides in from the left */
+  .lm-act__text { margin: 0; font-size: 15px; line-height: 1.6; color: var(--lm-mute); letter-spacing: .02em; opacity: 0; transform: translateX(-10px); }
+  .lm-act.is-on .lm-act__text { animation: lm-act-in .55s 1.2s ease-out forwards; }
+  @keyframes lm-act-in { to { opacity: 1; transform: none; } }
+
+  /* button: its dark fill sweeps in, then the label appears */
+  .lm-act__btn {
+    grid-column: 2;
+    justify-self: start;
+    position: relative; overflow: hidden; isolation: isolate;
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 12px;
+    padding: 12px 18px 12px 20px;
+    border-radius: 6px;
+    color: #fff; font-weight: 700; font-size: 14px; text-decoration: none;
+  }
+  .lm-act__btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--lm-ink); transform: scaleX(0); transform-origin: left; }
+  .lm-act__btn > * { opacity: 0; }
+  .lm-act.is-on .lm-act__btn::before { animation: lm-act-grow .5s 1.45s cubic-bezier(.7,0,.3,1) forwards; }
+  .lm-act.is-on .lm-act__btn > * { animation: lm-act-in .35s 1.85s ease-out forwards; }
+
+  /* hover: arrow slides out and comes back in; fill brightens slightly */
+  .lm-act__arrow { position: relative; width: 16px; height: 16px; overflow: hidden; }
+  .lm-act__arrow svg { position: absolute; inset: 0; width: 16px; height: 16px; }
+  .lm-act__btn:hover .lm-act__arrow svg { animation: lm-act-arrow .55s ease-in-out; }
+  @keyframes lm-act-arrow { 0% { transform: none; } 45% { transform: translateX(120%); } 46% { transform: translateX(-120%); } 100% { transform: none; } }
+  .lm-act__btn:hover::before { background: #000; }
+  .lm-act__btn:focus-visible { outline: 3px solid var(--lm-cyan); outline-offset: 3px; }
+
+  @media (max-width: 520px) {
+    .lm-act { grid-template-columns: minmax(0,1fr); justify-items: center; text-align: center; padding: 26px 20px; }
+    .lm-act__logo { grid-row: auto; margin-bottom: 8px; }
+    .lm-act__rule { transform-origin: center; margin: 6px auto 8px; }
+    .lm-act__btn { grid-column: 1; justify-self: center; }
+    .lm-act__text { transform: translateY(6px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lm-act *, .lm-act *::before { animation: none !important; }
+    .lm-act__logo { clip-path: none; }
+    .lm-act__w > span, .lm-act__rule, .lm-act__text, .lm-act__btn::before { transform: none; opacity: 1; }
+    .lm-act__btn > * { opacity: 1; }
+    .lm-act__trace { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="lm-act" aria-label="Konzept, Design und Umsetzung">
+  <svg class="lm-act__trace" aria-hidden="true"><rect rx="13" pathLength="1"/></svg>
+  <img class="lm-act__logo" src="../assets/lm-logo.png" alt="Landsberger Medienagentur Logo">
+  <h3 class="lm-act__title">
+    <span class="lm-act__w"><span>Konzept,</span></span>
+    <span class="lm-act__w"><span>Design</span></span>
+    <span class="lm-act__w"><span>und</span></span>
+    <span class="lm-act__w"><span>Umsetzung</span></span>
+  </h3>
+  <div class="lm-act__rule" aria-hidden="true"></div>
+  <p class="lm-act__text">Landsberger Medienagentur — Ioan Meyer<br>© 2026 Copyright</p>
+  <a class="lm-act__btn" href="https://www.landsberger-medienagentur.de" target="_blank" rel="noopener">
+    <span>Website der Agentur besuchen</span>
+    <span class="lm-act__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+</section>
+
+<script>
+(function () {
+  var el = document.querySelector('.lm-act');
+  if (!el) return;
+  function play() { el.classList.remove('is-on'); void el.offsetWidth; el.classList.add('is-on'); }
+  // play the sequence when the section comes into view
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (en) { if (en.isIntersecting) { play(); obs.disconnect(); } });
+    }, { threshold: 0.5 }).observe(el);
+  } else { el.classList.add('is-on'); }
+  // replay when the visitor moves onto the card again (not more than every 4 s)
+  var last = Date.now();
+  el.addEventListener('mouseenter', function () {
+    if (Date.now() - last > 4000) { last = Date.now(); play(); }
+  });
+})();
+</script>
+
+</body>
+</html>

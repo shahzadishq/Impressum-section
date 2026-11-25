@@ -10,7 +10,7 @@ Ten animated design options for the "Konzept, Design und Umsetzung" credit secti
 - `designs/05-signatur.html` – minimal, the logo writes itself like a signature
 - `designs/06-glas.html` – frosted glass card over slowly drifting colour blobs
 - `designs/07-stempel.html` – round badge with a text ring turning around the logo
-- `designs/08-visitenkarte.html` – business card that turns in on scroll and tilts with the mouse
+- `designs/08-auftritt.html` – compact, neutral card; logo, words, text and button arrive in one sequence
 - `designs/09-rahmen.html` – gradient frame that draws itself on scroll
 - `designs/10-leiste.html` – compact pill bar with a soft light sweep
 - `assets/lm-logo.png` – logo (cropped from a screenshot; swap in the original file for best sharpness)
