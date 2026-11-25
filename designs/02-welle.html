@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum Credit – 02 Welle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 48px 20px; background: #fff; font-family: "Lato", sans-serif; }
+
+  /* ===== Design 02 – Welle ===== */
+  .lm-welle {
+    --lm-cyan: #18c8ec;
+    --lm-teal: #2ee6c8;
+    --lm-blue: #1e8ff0;
+    --lm-ink: #1b1d20;
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 0 #e7eaee inset, 0 24px 60px -28px rgba(20,60,90,.35);
+    border: 1px solid #e7eaee;
+  }
+
+  /* left: the brand panel with moving waves */
+  .lm-welle__panel {
+    position: relative;
+    min-height: 220px;
+    display: grid; place-items: center;
+    background: linear-gradient(160deg, #1e8ff0 0%, #18c8ec 55%, #2ee6c8 100%);
+    overflow: hidden;
+  }
+  .lm-welle__waves { position: absolute; left: 0; bottom: 0; width: 200%; height: 70%; }
+  .lm-welle__waves path { fill: rgba(255,255,255,.16); }
+  .lm-welle__waves--a { animation: lm-welle-move 14s linear infinite; }
+  .lm-welle__waves--b { animation: lm-welle-move 22s linear infinite reverse; opacity: .8; height: 55%; }
+  @keyframes lm-welle-move { to { transform: translateX(-50%); } }
+
+  .lm-welle__badge {
+    position: relative; z-index: 1;
+    width: 128px; height: 128px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 16px 40px -10px rgba(0,40,80,.45);
+  }
+  .lm-welle__badge img { width: 92px; height: auto; display: block; }
+
+  /* right: content */
+  .lm-welle__body { padding: 40px 48px; display: flex; flex-direction: column; justify-content: center; }
+  .lm-welle__title { margin: 0 0 12px; font-size: 24px; font-weight: 900; color: var(--lm-ink); line-height: 1.25; }
+  .lm-welle__text  { margin: 0 0 26px; font-size: 16px; line-height: 1.6; color: #4b5057; letter-spacing: .02em; }
+
+  .lm-welle__btn {
+    position: relative; isolation: isolate; overflow: hidden;
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 28px;
+    border-radius: 6px;
+    background: var(--lm-ink); color: #fff;
+    font-weight: 700; font-size: 15px; text-decoration: none;
+  }
+  .lm-welle__btn::before {              /* cyan fill that sweeps in on hover */
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(90deg, var(--lm-blue), var(--lm-cyan));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .45s cubic-bezier(.65,0,.35,1);
+  }
+  .lm-welle__btn:hover::before { transform: scaleX(1); }
+  .lm-welle__btn svg { width: 16px; height: 16px; transition: transform .3s; }
+  .lm-welle__btn:hover svg { transform: translate(3px,-3px); }
+  .lm-welle__btn:focus-visible { outline: 3px solid var(--lm-cyan); outline-offset: 3px; }
+
+  @media (max-width: 720px) {
+    .lm-welle { grid-template-columns: 1fr; }
+    .lm-welle__panel { min-height: 190px; }
+    .lm-welle__body { padding: 32px 26px; text-align: center; }
+    .lm-welle__btn { align-self: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lm-welle__waves--a, .lm-welle__waves--b { animation: none; }
+    .lm-welle__btn::before { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="lm-welle" aria-label="Konzept, Design und Umsetzung">
+  <div class="lm-welle__panel" aria-hidden="false">
+    <svg class="lm-welle__waves lm-welle__waves--a" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 60 C 150 10 300 110 450 60 S 750 10 900 60 S 1050 110 1200 60 V120 H0 Z"/>
+      <path d="M0 80 C 150 40 300 120 450 80 S 750 40 900 80 S 1050 120 1200 80 V120 H0 Z"/>
+    </svg>
+    <svg class="lm-welle__waves lm-welle__waves--b" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 70 C 200 30 400 110 600 70 S 1000 30 1200 70 V120 H0 Z"/>
+    </svg>
+    <div class="lm-welle__badge">
+      <img src="../assets/lm-logo.png" alt="Landsberger Medienagentur Logo">
+    </div>
+  </div>
+  <div class="lm-welle__body">
+    <h3 class="lm-welle__title">Konzept, Design und Umsetzung</h3>
+    <p class="lm-welle__text">Landsberger Medienagentur — Ioan Meyer<br>© 2026 Copyright</p>
+    <a class="lm-welle__btn" href="https://www.landsberger-medienagentur.de" target="_blank" rel="noopener">
+      Website der Agentur besuchen
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum – Agentur-Credit: 5 Entwürfe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1b1d20; --muted: #626870; --line: #e5e8ec; --cyan: #18c8ec; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Lato", sans-serif; color: var(--ink); background: #f3f5f7; }
+  header { max-width: 1000px; margin: 0 auto; padding: 64px 24px 24px; }
+  header h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 40px); font-weight: 900; line-height: 1.15; }
+  header p { margin: 0; max-width: 60ch; color: var(--muted); font-size: 17px; line-height: 1.6; }
+  main { max-width: 1000px; margin: 0 auto; padding: 16px 24px 80px; display: grid; gap: 28px; }
+  .variant { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .variant__head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+  .variant__head h2 { margin: 0; font-size: 19px; font-weight: 900; }
+  .variant__head h2 span { color: var(--cyan); margin-right: 6px; }
+  .variant__head p { margin: 4px 0 0; color: var(--muted); font-size: 15px; flex-basis: 100%; }
+  .variant__head a { color: var(--ink); font-size: 14px; font-weight: 700; }
+  .variant__head a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+  iframe { display: block; width: 100%; border: 0; height: 340px; }
+  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 24px 48px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Agentur-Credit im Impressum: 5 Entwürfe</h1>
+  <p>Gleicher Inhalt, fünf Richtungen. Jede Variante hat nur dezente Bewegung und funktioniert auch auf dem Handy. Über „Einzeln öffnen“ lässt sich jede Version für sich ansehen.</p>
+</header>
+
+<main>
+  <section class="variant">
+    <div class="variant__head">
+      <h2><span>1</span>Aura</h2>
+      <a href="designs/01-aura.html" target="_blank" rel="noopener">Einzeln öffnen</a>
+      <p>Schwarze Karte mit einem langsam umlaufenden Lichtrand in den Logofarben.</p>
+    </div>
+    <iframe src="designs/01-aura.html" title="Entwurf 1 – Aura"></iframe>
+  </section>
+
+  <section class="variant">
+    <div class="variant__head">
+      <h2><span>2</span>Welle</h2>
+      <a href="designs/02-welle.html" target="_blank" rel="noopener">Einzeln öffnen</a>
+      <p>Helle Karte, links ein Farbfeld mit ruhig fließenden Wellen und dem Logo als Siegel.</p>
+    </div>
+    <iframe src="designs/02-welle.html" title="Entwurf 2 – Welle"></iframe>
+  </section>
+
+  <section class="variant">
+    <div class="variant__head">
+      <h2><span>3</span>Laufband</h2>
+      <a href="designs/03-laufband.html" target="_blank" rel="noopener">Einzeln öffnen</a>
+      <p>Volle Breite in Schwarz, im Hintergrund laufen „Konzept, Design, Umsetzung“ als Outline-Schrift.</p>
+    </div>
+    <iframe src="designs/03-laufband.html" title="Entwurf 3 – Laufband"></iframe>
+  </section>
+
+  <section class="variant">
+    <div class="variant__head">
+      <h2><span>4</span>Spotlight</h2>
+      <a href="designs/04-spotlight.html" target="_blank" rel="noopener">Einzeln öffnen</a>
+      <p>Ein Lichtschein folgt der Maus, die drei Schritte leuchten beim Scrollen nacheinander auf.</p>
+    </div>
+    <iframe src="designs/04-spotlight.html" title="Entwurf 4 – Spotlight"></iframe>
+  </section>
+
+  <section class="variant">
+    <div class="variant__head">
+      <h2><span>5</span>Signatur</h2>
+      <a href="designs/05-signatur.html" target="_blank" rel="noopener">Einzeln öffnen</a>
+      <p>Minimal und zentriert: das Logo schreibt sich wie eine Unterschrift, danach zieht sich eine Linie auf.</p>
+    </div>
+    <iframe src="designs/05-signatur.html" title="Entwurf 5 – Signatur"></iframe>
+  </section>
+</main>
+
+<footer>Landsberger Medienagentur — Entwürfe für den Impressum-Bereich</footer>
+
+<script>
+  // size each preview to its content
+  document.querySelectorAll('iframe').forEach(function (f) {
+    function fit() { try { f.style.height = f.contentDocument.body.scrollHeight + 'px'; } catch (e) {} }
+    f.addEventListener('load', function () { fit(); setTimeout(fit, 400); });
+    window.addEventListener('resize', fit);
+  });
+</script>
+</body>
+</html>

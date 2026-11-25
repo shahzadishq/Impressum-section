@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum Credit – 03 Laufband</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 48px 0; background: #fff; font-family: "Lato", sans-serif; }
+
+  /* ===== Design 03 – Laufband ===== */
+  .lm-band {
+    --lm-cyan: #18c8ec;
+    --lm-teal: #2ee6c8;
+    --lm-blue: #1e8ff0;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    padding: 64px 20px;
+  }
+  /* slow outlined words running behind the content */
+  .lm-band__track {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center; gap: 6px;
+    pointer-events: none;
+  }
+  .lm-band__row { display: flex; width: max-content; animation: lm-band-run 40s linear infinite; }
+  .lm-band__row--rev { animation-direction: reverse; animation-duration: 52s; }
+  .lm-band__row span {
+    padding-right: 48px;
+    font-size: clamp(56px, 9vw, 112px);
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,.11);
+  }
+  .lm-band__row span:nth-child(3n+2) { -webkit-text-stroke-color: rgba(24,200,236,.28); }
+  @keyframes lm-band-run { to { transform: translateX(-50%); } }
+
+  /* edge fade so text appears/disappears softly */
+  .lm-band::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, #000 0%, transparent 18%, transparent 82%, #000 100%);
+  }
+
+  .lm-band__content {
+    position: relative; z-index: 1;
+    max-width: 640px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 34px 30px 36px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .lm-band__logo { width: 92px; height: auto; margin-bottom: 18px; }
+  .lm-band__title { margin: 0 0 10px; font-size: 24px; font-weight: 900; line-height: 1.25; }
+  .lm-band__text  { margin: 0 0 26px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.7); }
+
+  .lm-band__btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 30px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--lm-blue), var(--lm-cyan), var(--lm-teal), var(--lm-cyan), var(--lm-blue));
+    background-size: 200% 100%;
+    color: #fff; font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: background-position .6s ease, box-shadow .3s;
+  }
+  .lm-band__btn:hover { background-position: 100% 0; box-shadow: 0 0 0 6px rgba(24,200,236,.18); }
+  .lm-band__btn:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lm-band__row { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="lm-band" aria-label="Konzept, Design und Umsetzung">
+  <div class="lm-band__track" aria-hidden="true">
+    <div class="lm-band__row">
+      <span>Konzept</span><span>Design</span><span>Umsetzung</span><span>Konzept</span><span>Design</span><span>Umsetzung</span>
+      <span>Konzept</span><span>Design</span><span>Umsetzung</span><span>Konzept</span><span>Design</span><span>Umsetzung</span>
+    </div>
+    <div class="lm-band__row lm-band__row--rev">
+      <span>Design</span><span>Umsetzung</span><span>Konzept</span><span>Design</span><span>Umsetzung</span><span>Konzept</span>
+      <span>Design</span><span>Umsetzung</span><span>Konzept</span><span>Design</span><span>Umsetzung</span><span>Konzept</span>
+    </div>
+  </div>
+
+  <div class="lm-band__content">
+    <img class="lm-band__logo" src="../assets/lm-logo.png" alt="Landsberger Medienagentur Logo">
+    <h3 class="lm-band__title">Konzept, Design und Umsetzung</h3>
+    <p class="lm-band__text">Landsberger Medienagentur — Ioan Meyer<br>© 2026 Copyright</p>
+    <a class="lm-band__btn" href="https://www.landsberger-medienagentur.de" target="_blank" rel="noopener">Website der Agentur besuchen</a>
+  </div>
+</section>
+
+</body>
+</html>
